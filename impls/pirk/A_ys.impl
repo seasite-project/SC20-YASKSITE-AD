@@ -8,6 +8,7 @@ code: |
   %LOOP_END k
   %COM omp_barrier
   %KERNEL ys_Approx
+  %COM omp_barrier
   %KERNEL ys_Update
 codegen:
   datastructs: "Ysn_Fsn.h"
