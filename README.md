@@ -21,11 +21,11 @@ offsite_tune --tool yasksite --machine machines/CascadelakeSP_Gold-6248.yml --co
 * Use config_clx.tune to control the fold variants.
 
 ### How to validate the Offsite predictions using actual runs ###
-* Go to [run_variants/YaskSite](), after Offsite run, i.e., `cd run_variants/YaskSite`.
+* Go to [run_variants/YaskSite](https://github.com/seasite-project/SC20-YASKSITE-AD/tree/master/run_variant/YaskSite), after Offsite run, i.e., `cd run_variants/YaskSite`.
 * `mkdir build && cd build` - Create a build folder.
 * `CC=icc CXX=icpc cmake .. -DyaskSite_DIR=/path/where/YaskSite/is/installed`.Note that the path is same as the one provided to `-DCMAKE_INSTALL_PREFIX` when installing YaskSite.
 * `make`
-* Now you can run the PIRK variants. For example variant A with 2 threads, Wave3D_radius2 ODE problem, RADAU II A7 method (s=4, m=6), fold 1:1:8, N=400, and spatial tuning on CascadeLake SP Gold-6248 (SNC off) can be run as:
+* Now you can run the PIRK variants. For example variant A with 2 threads, Wave3D_radius2 ODE problem, RADAU II A7 method (s=4, m=6), fold 1:1:8, N=400, and with spatial tuning on CascadeLake SP Gold-6248 (SNC off) can be run as:
 ```
 threads=2
 taskset -c 0-$((threads-1)) ./ys_A_il -c $threads -C 6 -S 4 -r 2 -k Wave3D_radius2 -m ../../../machines/CascadelakeSP_Gold-6248.yml -f 8:1:1 -o spatial -s 400:400:400
